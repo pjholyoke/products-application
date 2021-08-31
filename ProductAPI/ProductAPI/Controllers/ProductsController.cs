@@ -14,6 +14,33 @@ namespace ProductAPI.Controllers
     {
         JsonSerializer serializer = new JsonSerializer();
 
+        protected override void OnException(ExceptionContext filterContext)
+        {
+            string errorMessage = "";
+            filterContext.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            switch (filterContext.Exception.GetType().Name.ToString())
+            {
+                case "ArgumentException":
+                    errorMessage = "Invalid argument.";
+                    break;
+                default:
+                    errorMessage = filterContext.Exception.Message;
+                    break;
+            }
+
+            filterContext.Result = new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = new
+                {
+                    Error = errorMessage
+                }
+            };
+
+            filterContext.ExceptionHandled = true;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
