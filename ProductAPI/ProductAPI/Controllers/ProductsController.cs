@@ -53,5 +53,30 @@ namespace ProductAPI.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public JsonResult GetProductByID(Guid ID)
+        {
+            if (!ModelState.IsValid)
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return ExceptionHandler.HandleError("An ID Is Required.");
+            }
+
+            List<Product> products = new List<Product>();
+
+            using (Model db = new Model())
+            {
+                products = db.Products
+                    .Include("ProductType")
+                    .Where(p => p.ID == ID)
+                    .ToList<Product>();
+            }
+
+            return new JsonResult()
+            {
+                Data = products,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }
