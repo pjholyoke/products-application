@@ -83,12 +83,6 @@ namespace ProductAPI.Controllers
 
         public JsonResult GetProductByID(Guid ID)
         {
-            if (!ModelState.IsValid)
-            {
-                Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return ExceptionHandler.HandleError("An ID Is Required.");
-            }
-
             List<Product> products = new List<Product>();
 
             using (Model db = new Model())
