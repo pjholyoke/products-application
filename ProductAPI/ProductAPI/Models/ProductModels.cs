@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,14 +14,13 @@ namespace ProductAPI.Models
         public string Name { get; set; }
 
         public string Desc { get; set; }
-
-        //public List<Product> Products { get; set; }
     }
 
     public partial class Product
     {
         public Guid ID { get; set; }
 
+        [JsonIgnore]
         public Guid TypeID { get; set; }
 
         [StringLength(255)]
@@ -29,6 +29,7 @@ namespace ProductAPI.Models
         [StringLength(1000)]
         public string Desc { get; set; }
 
+        [ForeignKey("TypeID")]
         public virtual ProductType ProductType { get; set; }
     }
 }

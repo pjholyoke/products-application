@@ -37,5 +37,21 @@ namespace ProductAPI.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public JsonResult GetProducts()
+        {
+            List<Product> products = new List<Product>();
+
+            using (Model db = new Model())
+            {
+                products = db.Products.Include("ProductType").ToList<Product>();
+            }
+
+            return new JsonResult()
+            {
+                Data = products,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }

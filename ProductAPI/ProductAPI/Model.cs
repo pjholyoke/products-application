@@ -19,7 +19,8 @@ namespace ProductAPI
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            // Had to explicitly add this for some reason.
+            modelBuilder.Conventions.Add<PluralizingTableNameConvention>();
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.Name)
@@ -28,6 +29,12 @@ namespace ProductAPI
             modelBuilder.Entity<Product>()
                 .Property(e => e.Desc)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .HasKey(p => p.ID);
+
+            modelBuilder.Entity<Product>()
+                .HasRequired<ProductType>(p => p.ProductType);
 
             modelBuilder.Entity<ProductType>()
                 .Property(e => e.Name)
@@ -38,10 +45,6 @@ namespace ProductAPI
                 .IsUnicode(false);
 
             modelBuilder.Entity<ProductType>();
-                //.HasMany(e => e.Products)
-                //.WithRequired(e => e.ProductType)
-                //.HasForeignKey(e => e.TypeID)
-                //.WillCascadeOnDelete(false);
         }
     }
 }
