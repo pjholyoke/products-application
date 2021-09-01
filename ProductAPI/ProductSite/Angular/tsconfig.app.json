@@ -1,17 +1,18 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "src",
-    "outDir": "../bundles/AngularOutput",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "types": []
-  },
-  "files": [
-    "src/main.ts",
-    "src/polyfills.ts"
-  ],
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "baseUrl": "src",
+        "outDir": "../bundles/AngularOutput",
+        "emitDecoratorMetadata": true,
+        "types": [ ]
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts"
+    ],
     "include": [
         "src/**/*.d.ts"
     ],
