@@ -182,8 +182,8 @@
   <ItemGroup>
     <Content Include="Angular\.gitignore" />
     <Content Include="Angular\karma.conf.js" />
-    <Content Include="Angular\src\app\app.component.css" />
-    <Content Include="Angular\src\app\app.component.html" />
+    <Content Include="Angular\src\app\Components\App\app.component.css" />
+    <Content Include="Angular\src\app\Components\App\app.component.html" />
     <Content Include="Angular\src\favicon.ico" />
     <Content Include="Angular\src\index.html" />
     <Content Include="Angular\src\main.js" />
@@ -279,10 +279,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <TypeScriptCompile Include="Angular\src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="Angular\src\app\app.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Components\App\app.component.ts" />
     <TypeScriptCompile Include="Angular\src\app\app.module.ts" />
-    <TypeScriptCompile Include="Angular\src\app\product.service.ts" />
-    <TypeScriptCompile Include="Angular\src\app\product.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Classes\product-type.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Services\product.service.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Classes\product.ts" />
     <TypeScriptCompile Include="Angular\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="Angular\src\environments\environment.ts" />
     <TypeScriptCompile Include="Angular\src\main.ts" />

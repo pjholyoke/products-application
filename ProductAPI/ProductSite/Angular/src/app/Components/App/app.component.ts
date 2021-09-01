@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 
-import { ProductService } from './product.service';
+import { Product } from '../../Classes/product';
+
+import { ProductService } from '../../Services/product.service';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +10,19 @@ import { ProductService } from './product.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  title = 'Angular';
+  loading = true;
+  productsList: Product[] = [];
 
   constructor(
     private productService: ProductService
   ) {
-    var test = productService.getProducts();
+    var productsObservable = productService.getProducts();
 
-    console.log("Did we get products?: ", test);
+    productsObservable.subscribe((data: any) => {
+      console.log("Product data: ", data);
+
+      this.loading = false;
+    });
   }
 
   ngAfterViewInit() {
