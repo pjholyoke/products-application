@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { combineLatest, forkJoin } from 'rxjs';
 
 import { Product } from '../../Classes/product';
@@ -20,7 +21,12 @@ export class ProductListComponent implements OnInit {
   products: Product[] = [];
   productTypes: ProductType[] = [];
 
-  constructor(private productService: ProductService) {
+  selectedCategory: string | null | undefined = "All Types";
+
+  constructor(
+    private productService: ProductService,
+    private router: Router
+  ) {
     var productsObservable = productService.getProducts();
     var typesObservable = productService.getProductTypes();
 
@@ -60,6 +66,9 @@ export class ProductListComponent implements OnInit {
   }
 
   filterProductsByType(ID: string) {
+    var selectedItem = this.productTypes.find(x => x.ID == ID);
+    this.selectedCategory = selectedItem?.Name;
+
     var productsObservable = this.productService.getProductsByTypeID(ID);
 
     productsObservable.subscribe((data: any) => {
@@ -70,4 +79,7 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  nav() {
+    this.router.navigate(['../test']);
+  }
 }

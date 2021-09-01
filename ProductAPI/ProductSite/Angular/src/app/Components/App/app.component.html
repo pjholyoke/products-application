@@ -1,13 +1,14 @@
 <!-- Toolbar -->
 <div class="app">
   <header-component>
-    <a href="#">Home</a>
+    <a routerLink="/test">Component Test</a>
   </header-component>
 
   <div class="content">
     <loading-spinner [loading]="loading"></loading-spinner>
 
-    <product-list></product-list>
+    <router-outlet></router-outlet>
+    <!--<product-list></product-list>-->
   </div>
 
 </div>

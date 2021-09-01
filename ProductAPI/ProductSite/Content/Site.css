@@ -5,7 +5,8 @@ html {
 }
 
 body {
-    /*background: #23272A;*/ /*url("https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower-dark.png") repeat left top;*/
-    /*background-size: 300px;
-    color: #efefef;*/
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower-dark.png") repeat left top;
+    background-size: 300px;
+    color: #efefef;
+    margin-bottom: 5em;
 }

@@ -3,26 +3,31 @@
 
 <div class="product-list">
   <div class="product-types">
-    <h3>Categories:</h3>
-    <ul>
-      <li [style.background-color]="'#666'" (click)="filterProductsByType('00000000-0000-0000-0000-000000000000')"><a>All Types</a></li>
+    <div class="category-select">
+      <h3>Categories:</h3>
 
-      <li [style.background-color]="'#' + intToRGB(hashCode(type.Name) * 2)" *ngFor="let type of productTypes; index as i;" (click)="filterProductsByType(type.ID)">
+      <small>{{ selectedCategory ?? "All Types" }}</small>
+    </div>
+
+    <ul>
+      <li class="product-type" (click)="filterProductsByType('00000000-0000-0000-0000-000000000000')"><a>All Types</a></li>
+
+      <li class="product-type" *ngFor="let type of productTypes; index as i;" (click)="filterProductsByType(type.ID)">
         <a>{{type.Name}}</a>
       </li>
     </ul>
   </div>
 
   <div class="products">
-    <div *ngIf="products.length > 0; else elseBlock">
+    <article *ngFor="let product of products; index as i;">
+      <div class="text">
+        <h3>{{ product.Name }}</h3>
+        <small class="type-subhead">{{ product.ProductType.Name }}</small>
+        <p class="desc">{{ (product.Desc.length > 100)? (product.Desc | slice:0:100)+'...':(product.Desc)}}</p>
 
-      <li *ngFor="let product of products; index as i;">
-        {{ i + 1}}. {{product.Name}} - (Type: {{ product.ProductType.Name }})
-      </li>
-
-    </div>
-
-    <ng-template #elseBlock>No products found.</ng-template>
-  </div>
+        <button>View Details</button>
+      </div>
+  </article>
+</div>
 </div>
 
