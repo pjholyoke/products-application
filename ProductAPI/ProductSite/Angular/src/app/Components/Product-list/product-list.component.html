@@ -21,11 +21,11 @@
   <div class="products">
     <article *ngFor="let product of products; index as i;">
       <div class="text">
-        <h3>{{ product.Name }}</h3>
+        <h3 class="name">{{ product.Name }}</h3>
         <small class="type-subhead">{{ product.ProductType.Name }}</small>
         <p class="desc">{{ (product.Desc.length > 100)? (product.Desc | slice:0:100)+'...':(product.Desc)}}</p>
 
-        <button>View Details</button>
+        <button [routerLink]="['/product-details/', product.ID]">View Details</button>
       </div>
   </article>
 </div>

@@ -83,20 +83,24 @@ li {
   height: 100%;
 }
 
-  .text > .type-subhead {
-    padding-bottom: .2em;
-    border-bottom: 1px solid #333;
+.text > .type-subhead {
+  padding-bottom: .2em;
+  border-bottom: 1px solid #333;
+}
+
+  .text > .name {
+    color: #2a58b2;
   }
 
-  .text > .desc {
-    min-height: 30%;
-  }
+.text > .desc {
+  min-height: 30%;
+}
 
-  .text > button {
-    background: gray;
-    border: 0;
-    color: white;
-    padding: 10px;
-    width: 100%;
-    margin-top: 1em;
-  }
+.text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  margin-top: 1em;
+}

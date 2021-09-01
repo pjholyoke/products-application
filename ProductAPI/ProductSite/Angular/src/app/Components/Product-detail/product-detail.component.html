@@ -1,1 +1,11 @@
-<p>product-detail works!</p>
+
+<div class="product-details" *ngIf="!loading">
+
+  <div class="details">
+    <h2>Name: {{ product.Name }}</h2>
+    <h3>Category: {{ product.ProductType == null ? "N/A" : product.ProductType.Name }}</h3>
+    <p>
+      {{ product.Desc }}
+    </p>
+  </div>
+</div>

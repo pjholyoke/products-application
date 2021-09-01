@@ -12,3 +12,11 @@
     justify-content: space-between;
     align-items: center;
 }
+
+  .header .back-button {
+    border: 0;
+    background-color: #1C305D;
+    color: #efefef;
+    border-radius: .2em;
+    font-weight: bold;
+  }

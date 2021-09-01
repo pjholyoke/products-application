@@ -1,6 +1,9 @@
 
 <div class="header">
-  <h2>Product Database</h2>
+  <div class="title">
+    <h2>Product Database</h2>
+    <button class="back-button" routerLink="../" *ngIf="showBackButton"><- Go Back</button>
+  </div>
 
   <div class="links">
     <ng-content></ng-content>
