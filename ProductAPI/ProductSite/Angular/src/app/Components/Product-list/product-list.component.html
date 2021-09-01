@@ -1,7 +1,28 @@
 
-<div class="product-list">
-  <loading-spinner [loading]="loading"></loading-spinner>
+<loading-spinner [loading]="loading"></loading-spinner>
 
-  <p>product-list works!</p>
+<div class="product-list">
+  <div class="product-types">
+    <h3>Categories:</h3>
+    <ul>
+      <li [style.background-color]="'#666'" (click)="filterProductsByType('00000000-0000-0000-0000-000000000000')"><a>All Types</a></li>
+
+      <li [style.background-color]="'#' + intToRGB(hashCode(type.Name) * 2)" *ngFor="let type of productTypes; index as i;" (click)="filterProductsByType(type.ID)">
+        <a>{{type.Name}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="products">
+    <div *ngIf="products.length > 0; else elseBlock">
+
+      <li *ngFor="let product of products; index as i;">
+        {{ i + 1}}. {{product.Name}} - (Type: {{ product.ProductType.Name }})
+      </li>
+
+    </div>
+
+    <ng-template #elseBlock>No products found.</ng-template>
+  </div>
 </div>
 

@@ -101,5 +101,33 @@ namespace ProductAPI.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet
             };
         }
+
+        public JsonResult GetProductsByTypeID(Guid ID)
+        {
+            List<Product> products = new List<Product>();
+
+            using (Model db = new Model())
+            {
+                if(ID == Guid.Empty)
+                {
+                    products = db.Products
+                        .Include("ProductType")
+                        .ToList<Product>();
+
+                } else
+                {
+                    products = db.Products
+                        .Include("ProductType")
+                        .Where(p => p.TypeID == ID)
+                        .ToList<Product>();
+                }
+            }
+
+            return new JsonResult()
+            {
+                Data = products,
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            };
+        }
     }
 }

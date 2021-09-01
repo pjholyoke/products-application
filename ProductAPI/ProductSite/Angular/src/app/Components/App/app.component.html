@@ -1,8 +1,13 @@
 <!-- Toolbar -->
 <div class="app">
-  <loading-spinner [loading]="loading"></loading-spinner>
+  <header-component>
+    <a href="#">Home</a>
+  </header-component>
 
-  <h3 class="aaaa">ROOT APP COMPONENT.</h3>
+  <div class="content">
+    <loading-spinner [loading]="loading"></loading-spinner>
 
-  <product-list></product-list>
+    <product-list></product-list>
+  </div>
+
 </div>

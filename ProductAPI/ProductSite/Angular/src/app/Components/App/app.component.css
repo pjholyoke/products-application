@@ -4,7 +4,9 @@
 }
 
 .app {
-  margin: 2em 1em;
-  padding: 0 1em;
   width: 100%;
+}
+
+.content {
+  padding: 0 1em;
 }

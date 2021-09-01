@@ -4,32 +4,34 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import { IProduct, Product } from '../Classes/product';
+import { IProductType } from '../Classes/product-type';
 import { ProductModule } from '../Modules/Product/product.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  url: string = environment.apiBaseUrl.toString();
 
   constructor(
     private http: HttpClient
   ) {
     console.log("ENVIRONMENT: ", environment);
-
-    //var productsObservable = this.http.get<IProduct>(environment.apiBaseUrl + "/Products/GetProducts");
-
-    //productsObservable.subscribe((data: any) => {
-    //  console.log("Product data: ", data);
-    //});
   }
 
   getProducts(): Observable<IProduct> {
-    return this.http.get<IProduct>(environment.apiBaseUrl + "/Products/GetProducts");
+    return this.http.get<IProduct>(`${this.url}/Products/GetProducts`);
+  }
 
-    //var products: Product[] = [
-    //  new Product()
-    //];
+  getProductByID(ID: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.url}/Products/GetProductByID/${ID}`);
+  }
 
-    //return products;
+  getProductTypes(): Observable<IProductType> {
+    return this.http.get<IProduct>(`${this.url}/Products/GetProductTypes`);
+  }
+
+  getProductsByTypeID(ID: string): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.url}/Products/GetProductsByTypeID/${ID}`);
   }
 }

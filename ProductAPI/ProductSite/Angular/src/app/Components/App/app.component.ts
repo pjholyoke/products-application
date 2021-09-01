@@ -16,13 +16,6 @@ export class AppComponent implements AfterViewInit {
   constructor(
     
   ) {
-    //var productsObservable = productService.getProducts();
-
-    //productsObservable.subscribe((data: any) => {
-    //  console.log("Product data: ", data);
-
-    //  
-    //});
 
     this.loading = false;
   }
