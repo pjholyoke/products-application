@@ -184,6 +184,12 @@
     <Content Include="Angular\karma.conf.js" />
     <Content Include="Angular\src\app\Components\App\app.component.css" />
     <Content Include="Angular\src\app\Components\App\app.component.html" />
+    <Content Include="Angular\src\app\Components\LoadingSpinner\loading.component.css" />
+    <Content Include="Angular\src\app\Components\LoadingSpinner\loading.component.html" />
+    <Content Include="Angular\src\app\Components\Product-detail\product-detail.component.css" />
+    <Content Include="Angular\src\app\Components\Product-detail\product-detail.component.html" />
+    <Content Include="Angular\src\app\Components\Product-list\product-list.component.css" />
+    <Content Include="Angular\src\app\Components\Product-list\product-list.component.html" />
     <Content Include="Angular\src\favicon.ico" />
     <Content Include="Angular\src\index.html" />
     <Content Include="Angular\src\main.js" />
@@ -282,6 +288,10 @@
     <TypeScriptCompile Include="Angular\src\app\Components\App\app.component.ts" />
     <TypeScriptCompile Include="Angular\src\app\app.module.ts" />
     <TypeScriptCompile Include="Angular\src\app\Classes\product-type.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Components\LoadingSpinner\loading.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Components\Product-detail\product-detail.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Components\Product-list\product-list.component.ts" />
+    <TypeScriptCompile Include="Angular\src\app\Modules\Product\product.module.ts" />
     <TypeScriptCompile Include="Angular\src\app\Services\product.service.ts" />
     <TypeScriptCompile Include="Angular\src\app\Classes\product.ts" />
     <TypeScriptCompile Include="Angular\src\environments\environment.prod.ts" />

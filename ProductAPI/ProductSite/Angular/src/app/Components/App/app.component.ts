@@ -2,7 +2,7 @@ import { Component, AfterViewInit } from '@angular/core';
 
 import { Product } from '../../Classes/product';
 
-import { ProductService } from '../../Services/product.service';
+import { LoadingComponent } from '../LoadingSpinner/loading.component';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +14,17 @@ export class AppComponent implements AfterViewInit {
   productsList: Product[] = [];
 
   constructor(
-    private productService: ProductService
+    
   ) {
-    var productsObservable = productService.getProducts();
+    //var productsObservable = productService.getProducts();
 
-    productsObservable.subscribe((data: any) => {
-      console.log("Product data: ", data);
+    //productsObservable.subscribe((data: any) => {
+    //  console.log("Product data: ", data);
 
-      this.loading = false;
-    });
+    //  
+    //});
+
+    this.loading = false;
   }
 
   ngAfterViewInit() {
