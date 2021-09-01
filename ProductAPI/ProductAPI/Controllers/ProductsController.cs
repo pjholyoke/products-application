@@ -7,9 +7,11 @@ using ProductAPI.Models;
 using System.Web.Http.Results;
 using System.Net;
 using Newtonsoft.Json;
+using System.Web.Http.Cors;
 
 namespace ProductAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class ProductsController : Controller
     {
         JsonSerializer serializer = new JsonSerializer();

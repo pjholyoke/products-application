@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Owin;
 using Owin;
+using System.Web.Http.Cors;
 
 [assembly: OwinStartup(typeof(ProductAPI.Startup))]
 
